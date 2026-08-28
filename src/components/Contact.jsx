@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import logoEmail from '../assets/logo_email.png'
+import logoInstagram from '../assets/logo_instagram.png'
 
 function Contact() {
 
@@ -6,13 +8,11 @@ function Contact() {
   const [mensagemEnviada, setMensagemEnviada] = useState(false)
 
   function enviarMensagem(event) {
-
     event.preventDefault()
 
     if (nome.trim() !== '') {
       setMensagemEnviada(true)
     }
-
   }
 
   return (
@@ -44,7 +44,7 @@ function Contact() {
             <div className="contact-item">
 
               <div className="contact-icon">
-                ✉
+                <img src={logoEmail} alt="E-mail" />
               </div>
 
               <div>
@@ -57,7 +57,7 @@ function Contact() {
             <div className="contact-item">
 
               <div className="contact-icon">
-                @
+                <img src={logoInstagram} alt="Instagram" />
               </div>
 
               <div>
@@ -91,9 +91,7 @@ function Contact() {
                   type="text"
                   id="nome"
                   value={nome}
-                  onChange={(event) =>
-                    setNome(event.target.value)
-                  }
+                  onChange={(event) => setNome(event.target.value)}
                   placeholder="Como podemos te chamar?"
                   required
                 />
@@ -139,11 +137,9 @@ function Contact() {
             </button>
 
             {mensagemEnviada && (
-
               <p className="form-success">
                 Obrigado, {nome}! Mensagem registrada com sucesso.
               </p>
-
             )}
 
           </form>
